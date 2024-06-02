@@ -13,7 +13,7 @@ export const LoginPage = () => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    auth.login({ username });
+    auth.login(username);
   };
 
   if (auth.user) {

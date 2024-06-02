@@ -1,10 +1,7 @@
 // User
-export interface Username {
-  username: string;
-}
-
 export interface User {
-  username: Username;
+  username: string;
+  isAdmin: string | undefined;
 }
 
 // Blog
@@ -19,7 +16,7 @@ export interface BlogData extends Array<BlogContent> {}
 
 // Context
 export interface contextAuth {
-  user: User["username"] | null;
+  user: User | null;
   login(username: User["username"]): void;
   logout(): void;
 }

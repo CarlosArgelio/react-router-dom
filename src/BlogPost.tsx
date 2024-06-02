@@ -8,8 +8,11 @@ export const BlogPost = () => {
   const { slug } = useParams();
 
   const auth = useAuth();
+  const { user } = auth;
 
   const blogPost = blogdata.find((post) => post.slug === slug);
+
+  const canDelete = user?.isAdmin || blogPost?.author === user?.username;
 
   const returnToBlog = () => {
     navigate("/blog");
@@ -21,6 +24,8 @@ export const BlogPost = () => {
       <button onClick={returnToBlog}>Volver al blog</button>
       <p>{blogPost?.author}</p>
       <p>{blogPost?.content}</p>
+
+      {(user?.isAdmin || canDelete) && <button>Eliminar blogpost</button>}
     </>
   );
 };
