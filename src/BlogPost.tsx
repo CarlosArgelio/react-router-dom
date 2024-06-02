@@ -18,6 +18,14 @@ export const BlogPost = () => {
     navigate("/blog");
   };
 
+  const handleDeletePost = () => {
+    const findIndex = blogdata.findIndex(
+      // eslint-disable-next-line prettier/prettier
+      (blog) => blog.title === blogPost?.title
+    );
+    blogdata.splice(findIndex, 1);
+  };
+
   return (
     <>
       <h2>{blogPost?.title}</h2>
@@ -25,7 +33,9 @@ export const BlogPost = () => {
       <p>{blogPost?.author}</p>
       <p>{blogPost?.content}</p>
 
-      {(user?.isAdmin || canDelete) && <button>Eliminar blogpost</button>}
+      {(user?.isAdmin || canDelete) && (
+        <button onClick={handleDeletePost}>Eliminar blogpost</button>
+      )}
     </>
   );
 };
