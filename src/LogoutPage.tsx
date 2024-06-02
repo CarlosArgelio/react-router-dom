@@ -1,5 +1,3 @@
-import React from "react";
-
 export const LogoutPage = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

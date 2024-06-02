@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
-import { AuthProviderProps, AuthRouteProps, contextAuth, User } from "./types";
+import { AuthProviderProps, AuthRouteProps, User, contextAuth } from "./types";
 import { Navigate, useNavigate } from "react-router-dom";
+
+const adminList = ["User1", "User2", "User3"];
 
 const AuthContext = createContext({} as contextAuth);
 
@@ -9,6 +11,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User["username"] | null>(null);
 
   const login: contextAuth["login"] = ({ username }) => {
+    const isAdmin = adminList.find((admin) => admin === username);
     setUser({ username });
     navigate("/profile");
   };

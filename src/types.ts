@@ -1,5 +1,3 @@
-import React from "react";
-
 // User
 export interface Username {
   username: string;

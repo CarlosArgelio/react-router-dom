@@ -1,13 +1,13 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-import { Menu } from "./Menu";
 import { AuthProvider, AuthRoute } from "./auth";
-import { HomePage } from "./HomePage";
 import { BlogPage } from "./BlogPage";
-import { ProfilePage } from "./ProfilePage";
 import { BlogPost } from "./BlogPost";
+import { HomePage } from "./HomePage";
 import { LoginPage } from "./LoginPage";
 import { LogoutPage } from "./LogoutPage";
+import { Menu } from "./Menu";
+import { ProfilePage } from "./ProfilePage";
 
 export const App = () => {
   return (

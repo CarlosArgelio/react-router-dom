@@ -1,9 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
+
+import { useAuth } from "./auth";
 import { blogdata } from "./blogdata";
 
 export const BlogPost = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
+
+  const auth = useAuth();
 
   const blogPost = blogdata.find((post) => post.slug === slug);
 
