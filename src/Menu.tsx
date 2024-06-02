@@ -12,7 +12,7 @@ export const Menu = () => {
         {routes.map((route, index) => (
           <li key={index}>
             <NavLink
-              to={route.text}
+              to={route.to}
               style={({ isActive }) => ({ color: isActive ? "red" : "blue" })}
             >
               {route.text}
