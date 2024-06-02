@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuth } from "./auth";
+import { Navigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const auth = useAuth();
@@ -13,6 +14,10 @@ export const LoginPage = () => {
     e.preventDefault();
     auth.login({ username });
   };
+
+  if (auth.user) {
+    <Navigate to="/profile" />;
+  }
 
   return (
     <>

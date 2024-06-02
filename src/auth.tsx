@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
-import { AuthProviderProps, contextAuth, User } from "./types";
-import { useNavigate } from "react-router-dom";
+import { AuthProviderProps, AuthRouteProps, contextAuth, User } from "./types";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const AuthContext = createContext({} as contextAuth);
 
@@ -25,4 +25,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 export const useAuth = () => {
   const auth = useContext(AuthContext);
   return auth;
+};
+
+export const AuthRoute: React.FC<AuthRouteProps> = ({ children }) => {
+  const auth = useAuth();
+  const { user } = auth;
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
+  return <>{children}</>;
 };

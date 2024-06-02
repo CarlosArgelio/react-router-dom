@@ -1,3 +1,5 @@
+import React from "react";
+
 // User
 export interface Username {
   username: string;
@@ -25,7 +27,9 @@ export interface contextAuth {
 }
 
 // Props
-export interface BlogLinkProps extends Pick<BlogContent, "title" | "slug"> {}
-export interface AuthProviderProps {
+export interface ChildrenProp {
   children: React.ReactNode;
 }
+export interface BlogLinkProps extends Pick<BlogContent, "title" | "slug"> {}
+export interface AuthProviderProps extends ChildrenProp {}
+export interface AuthRouteProps extends ChildrenProp {}
